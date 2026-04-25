@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vruddhi K. Shah — Data Analyst & AI/ML</title>
+
+<!-- Open Graph / Social Sharing Tags -->
+<meta property="og:title" content="Vruddhi K. Shah — Data Analyst & AI/ML">
+<meta property="og:description" content="Gold Medalist · Published Researcher · Available May 2026 Co-op | Python · SQL · Tableau · Azure">
+<meta property="og:url" content="https://vruddhikshah.dev">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://vruddhikshah.dev/og-preview.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Vruddhi K. Shah — Data Analyst & AI/ML">
+<meta name="twitter:description" content="Gold Medalist · Published Researcher · Available May 2026 Co-op">
+<meta name="description" content="Vruddhi K. Shah — Data Analyst and AI/ML specialist. Gold Medalist, IGI Global published author, 3+ years enterprise experience. Seeking Summer/Fall 2026 Co-op in Toronto / North Bay, ON.">
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;1,700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:#f8f7f4; --bg2:#f1efea; --bg3:#eae8e1; --card:#ffffff;
+    --border:#e2dfd7; --border2:#ccc9bf;
+    --accent:#1a5c3a; --accent2:#2d7a52; --accent3:#c8862a;
+    --blue:#1e4976; --text:#1a1916; --muted:#7a7670; --light:#b0aca3;
+    --tag-bg:#eef5f1; --tag-c:#1a5c3a;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;font-weight:300;overflow-x:hidden;}
+
+  /* Custom cursor — desktop only */
+  @media(hover:hover){
+    body{cursor:none;}
+    .cursor{position:fixed;width:10px;height:10px;background:var(--accent);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .2s,height .2s;}
+    .cursor-ring{position:fixed;width:32px;height:32px;border:1.5px solid var(--accent);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);opacity:.35;transition:width .3s,height .3s;}
+  }
+  @media(hover:none){
+    .cursor,.cursor-ring{display:none;}
+  }
+
+  nav{position:fixed;top:0;left:0;right:0;z-index:1000;display:flex;justify-content:space-between;align-items:center;padding:1.2rem 4rem;background:rgba(248,247,244,0);border-bottom:1px solid transparent;transition:all .4s;}
+  nav.scrolled{background:rgba(248,247,244,0.92);border-bottom-color:var(--border);backdrop-filter:blur(16px);}
+  .nav-logo{font-family:'Playfair Display',serif;font-weight:700;font-size:.95rem;color:var(--accent);}
+  .nav-links{display:flex;gap:2.5rem;list-style:none;}
+  .nav-links a{font-family:'DM Mono',monospace;font-size:.68rem;color:var(--muted);text-decoration:none;letter-spacing:.12em;text-transform:uppercase;transition:color .25s;position:relative;}
+  .nav-links a::after{content:'';position:absolute;bottom:-3px;left:0;width:0;height:1px;background:var(--accent);transition:width .3s;}
+  .nav-links a:hover{color:var(--accent);}
+  .nav-links a:hover::after{width:100%;}
+
+  /* HERO */
+  #hero{min-height:100vh;display:flex;align-items:center;padding:0 4rem;position:relative;overflow:hidden;}
+
+  /* Animated gradient background — more distinctive than grid */
+  .hero-bg-gradient{
+    position:absolute;inset:0;pointer-events:none;
+    background:
+      radial-gradient(ellipse 55% 65% at 75% 40%, rgba(26,92,58,.07) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 50% at 20% 70%, rgba(200,134,42,.05) 0%, transparent 65%),
+      linear-gradient(var(--border) 1px,transparent 1px),
+      linear-gradient(90deg,var(--border) 1px,transparent 1px);
+    background-size:auto,auto,80px 80px,80px 80px;
+    animation:gradShift 12s ease-in-out infinite alternate;
+  }
+  @keyframes gradShift{
+    0%{background-position:0 0,0 0,0 0,0 0;}
+    100%{background-position:20px 20px,0 0,0 0,0 0;}
+  }
+
+  .hero-left{flex:1;position:relative;z-index:2;padding-top:5rem;}
+  .hero-right{width:340px;flex-shrink:0;position:relative;z-index:2;display:flex;flex-direction:column;gap:1rem;padding-top:5rem;margin-left:4rem;}
+
+  .hero-eyebrow{display:flex;align-items:center;gap:.8rem;font-family:'DM Mono',monospace;font-size:.68rem;color:var(--accent);letter-spacing:.18em;text-transform:uppercase;margin-bottom:1.8rem;opacity:0;animation:fadeUp .7s ease forwards .1s;}
+  .hero-eyebrow span{display:inline-block;width:28px;height:1px;background:var(--accent);}
+  .hero-name{font-family:'Playfair Display',serif;font-weight:800;font-size:clamp(3rem,7vw,6rem);line-height:.96;letter-spacing:-.02em;margin-bottom:.5rem;opacity:0;animation:fadeUp .8s ease forwards .25s;}
+  .hero-name em{color:var(--accent);font-style:italic;}
+  .hero-title{font-size:1.05rem;color:var(--muted);font-weight:400;margin-bottom:2.5rem;opacity:0;animation:fadeUp .8s ease forwards .4s;}
+  .hero-pills{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:3rem;opacity:0;animation:fadeUp .8s ease forwards .55s;}
+  .pill{display:inline-flex;align-items:center;gap:.4rem;padding:.35rem .9rem;background:var(--card);border:1px solid var(--border);font-family:'DM Mono',monospace;font-size:.6rem;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;}
+  .pill.green{background:var(--tag-bg);border-color:rgba(26,92,58,.2);color:var(--accent);}
+  .hero-cta{display:flex;gap:1rem;flex-wrap:wrap;opacity:0;animation:fadeUp .8s ease forwards .7s;}
+
+  .btn-solid{display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.8rem;background:var(--accent);color:#fff;font-family:'DM Mono',monospace;font-size:.7rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;border:none;transition:all .3s;position:relative;overflow:hidden;}
+  .btn-solid::after{content:'';position:absolute;inset:0;background:rgba(255,255,255,.1);transform:translateX(-100%);transition:transform .3s;}
+  .btn-solid:hover::after{transform:translateX(0);}
+  .btn-solid:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(26,92,58,.25);}
+  .btn-outline{display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.8rem;border:1px solid var(--border2);color:var(--muted);font-family:'DM Mono',monospace;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;transition:all .3s;}
+  .btn-outline:hover{border-color:var(--blue);color:var(--blue);transform:translateY(-2px);}
+
+  /* Resume download button */
+  .btn-resume{display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.8rem;border:1px solid rgba(26,92,58,.35);color:var(--accent);background:var(--tag-bg);font-family:'DM Mono',monospace;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;transition:all .3s;}
+  .btn-resume:hover{background:var(--accent);color:#fff;transform:translateY(-2px);}
+
+  .stat-card{background:var(--card);border:1px solid var(--border);padding:1.5rem;opacity:0;animation:fadeUp .8s ease forwards .8s;}
+  .stat-row{display:flex;justify-content:space-between;align-items:flex-end;padding:.8rem 0;border-bottom:1px solid var(--border);}
+  .stat-row:last-child{border-bottom:none;padding-bottom:0;}
+  .stat-row:first-child{padding-top:0;}
+  .stat-lbl{font-family:'DM Mono',monospace;font-size:.58rem;color:var(--light);letter-spacing:.1em;text-transform:uppercase;}
+  .stat-val{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;}
+  .stat-val.green{color:var(--accent);}
+  .stat-val.gold{color:var(--accent3);}
+
+  .avail-badge{background:var(--tag-bg);border:1px solid rgba(26,92,58,.2);padding:1rem 1.2rem;display:flex;align-items:center;gap:.8rem;opacity:0;animation:fadeUp .8s ease forwards 1s;}
+  .avail-dot{width:8px;height:8px;border-radius:50%;background:var(--accent);animation:pulse 2s infinite;flex-shrink:0;}
+  @keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(26,92,58,.4)}50%{box-shadow:0 0 0 6px rgba(26,92,58,0)}}
+  .avail-text{font-family:'DM Mono',monospace;font-size:.63rem;color:var(--accent);letter-spacing:.07em;line-height:1.55;}
+
+  .hero-scroll{position:absolute;bottom:2rem;left:4rem;display:flex;align-items:center;gap:.8rem;opacity:0;animation:fadeUp .8s ease forwards 1.2s;}
+  .scroll-bar{width:36px;height:1px;background:var(--border2);position:relative;overflow:hidden;}
+  .scroll-bar::after{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:var(--accent);animation:scrollAnim 2s ease infinite;}
+  @keyframes scrollAnim{0%{left:-100%}100%{left:100%}}
+  .scroll-lbl{font-family:'DM Mono',monospace;font-size:.6rem;color:var(--light);letter-spacing:.14em;text-transform:uppercase;}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+
+  /* SECTIONS */
+  section{padding:7rem 4rem;}
+  section.alt{background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
+  section.alt2{background:var(--bg3);border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
+
+  .sec-label{display:flex;align-items:center;gap:.8rem;font-family:'DM Mono',monospace;font-size:.65rem;color:var(--accent);letter-spacing:.18em;text-transform:uppercase;margin-bottom:1.2rem;}
+  .sec-label::before{content:'';display:inline-block;width:18px;height:1px;background:var(--accent);}
+  .sec-title{font-family:'Playfair Display',serif;font-weight:800;font-size:clamp(2rem,3.5vw,3rem);line-height:1.08;letter-spacing:-.02em;margin-bottom:1rem;}
+  .sec-desc{color:var(--muted);font-size:.95rem;line-height:1.8;max-width:520px;margin-bottom:4rem;}
+
+  /* ABOUT — with avatar */
+  .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:start;}
+  .about-text p{color:var(--muted);line-height:1.9;margin-bottom:1.1rem;font-size:.95rem;}
+  .about-text p strong{color:var(--text);font-weight:500;}
+
+  /* Avatar / initials circle */
+  .avatar-wrap{display:flex;align-items:center;gap:1.2rem;margin-bottom:2rem;}
+  .avatar-circle{width:64px;height:64px;border-radius:50%;background:var(--tag-bg);border:2px solid rgba(26,92,58,.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+  .avatar-initials{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:800;color:var(--accent);}
+  .avatar-meta{}
+  .avatar-name{font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;color:var(--text);}
+  .avatar-role{font-family:'DM Mono',monospace;font-size:.62rem;color:var(--muted);letter-spacing:.07em;}
+
+  .info-list{display:flex;flex-direction:column;gap:1px;background:var(--border);margin-top:2rem;}
+  .info-row{display:flex;align-items:flex-start;gap:1rem;padding:1.1rem 1.2rem;background:var(--card);transition:background .2s;}
+  .info-row:hover{background:var(--bg2);}
+  .info-icon{font-size:1rem;flex-shrink:0;width:1.4rem;text-align:center;margin-top:.1rem;}
+  .info-lbl{font-family:'DM Mono',monospace;font-size:.58rem;color:var(--light);letter-spacing:.1em;text-transform:uppercase;margin-bottom:.2rem;}
+  .info-val{font-size:.88rem;color:var(--text);}
+
+  /* SKILLS */
+  .skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);}
+  .skill-cell{background:var(--card);padding:2rem;transition:background .25s;position:relative;overflow:hidden;}
+  .skill-cell::before{content:'';position:absolute;left:0;top:0;width:3px;height:0;background:var(--accent);transition:height .3s;}
+  .skill-cell:hover{background:var(--bg2);}
+  .skill-cell:hover::before{height:100%;}
+  .skill-icon{font-size:1.4rem;margin-bottom:.9rem;}
+  .skill-name{font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;margin-bottom:1rem;}
+  .tags{display:flex;flex-wrap:wrap;gap:.4rem;}
+  .tag{font-family:'DM Mono',monospace;font-size:.58rem;padding:.25rem .65rem;background:var(--tag-bg);color:var(--tag-c);border:1px solid rgba(26,92,58,.15);letter-spacing:.04em;}
+  .tag.b{background:#eef3fa;color:var(--blue);border-color:rgba(30,73,118,.15);}
+  .tag.g{background:#fdf5ea;color:var(--accent3);border-color:rgba(200,134,42,.15);}
+  .tag.n{background:var(--bg2);color:var(--muted);border-color:var(--border);}
+
+  /* EXPERIENCE */
+  .exp-item{display:grid;grid-template-columns:180px 1fr;gap:3rem;padding:2.5rem 0;border-bottom:1px solid var(--border);}
+  .exp-item:last-child{border-bottom:none;}
+  .exp-period{font-family:'DM Mono',monospace;font-size:.65rem;color:var(--accent);letter-spacing:.08em;margin-bottom:.5rem;}
+  .exp-co{font-size:.84rem;color:var(--muted);line-height:1.5;}
+  .exp-role{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700;margin-bottom:1.2rem;}
+  .exp-list{list-style:none;display:flex;flex-direction:column;gap:.75rem;}
+  .exp-list li{display:flex;gap:.8rem;font-size:.88rem;color:var(--muted);line-height:1.65;}
+  .exp-list li::before{content:'→';color:var(--accent);flex-shrink:0;font-family:'DM Mono',monospace;font-size:.75rem;margin-top:.1rem;}
+  .exp-list li strong{color:var(--text);font-weight:500;}
+
+  /* PROJECTS */
+  .proj-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--border);}
+  .proj-card{background:var(--card);padding:2.5rem;position:relative;overflow:hidden;transition:background .25s;display:flex;flex-direction:column;}
+  .proj-card:hover{background:var(--bg2);}
+  .proj-num{font-family:'Playfair Display',serif;font-size:3rem;font-weight:800;color:var(--border2);line-height:1;margin-bottom:1.2rem;transition:color .3s;}
+  .proj-card:hover .proj-num{color:rgba(26,92,58,.15);}
+  .proj-badge{display:inline-block;font-family:'DM Mono',monospace;font-size:.58rem;padding:.22rem .65rem;border:1px solid rgba(200,134,42,.3);color:var(--accent3);background:#fdf5ea;letter-spacing:.08em;text-transform:uppercase;margin-bottom:.9rem;}
+  .proj-badge.blue{border-color:rgba(30,73,118,.2);color:var(--blue);background:#eef3fa;}
+  .proj-badge.green{border-color:rgba(26,92,58,.2);color:var(--accent);background:var(--tag-bg);}
+  .proj-title{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;margin-bottom:.8rem;}
+  .proj-desc{font-size:.87rem;color:var(--muted);line-height:1.7;margin-bottom:1rem;flex:1;}
+
+  /* Outcome metric badge */
+  .proj-outcome{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Mono',monospace;font-size:.62rem;color:var(--accent);background:var(--tag-bg);border:1px solid rgba(26,92,58,.15);padding:.3rem .7rem;margin-bottom:1rem;letter-spacing:.04em;}
+  .proj-outcome::before{content:'↑';font-weight:700;}
+
+  .proj-footer{display:flex;align-items:center;justify-content:space-between;}
+  .proj-tags{display:flex;flex-wrap:wrap;gap:.4rem;}
+  .ptag{font-family:'DM Mono',monospace;font-size:.58rem;padding:.22rem .55rem;border:1px solid var(--border2);color:var(--muted);}
+  .proj-link{font-family:'DM Mono',monospace;font-size:.62rem;color:var(--accent);text-decoration:none;letter-spacing:.08em;display:flex;align-items:center;gap:.3rem;flex-shrink:0;margin-left:1rem;transition:opacity .2s;}
+  .proj-link:hover{opacity:.7;}
+
+  /* PUBLICATION */
+  .pub-card{border:1px solid var(--border);padding:3rem;background:var(--card);max-width:900px;position:relative;overflow:hidden;transition:border-color .3s;}
+  .pub-card:hover{border-color:var(--accent2);}
+  .pub-stripe{position:absolute;top:0;left:0;width:4px;height:100%;background:var(--accent);}
+  .pub-tag{font-family:'DM Mono',monospace;font-size:.62rem;color:var(--accent3);letter-spacing:.15em;text-transform:uppercase;margin-bottom:.9rem;}
+  .pub-title{font-family:'Playfair Display',serif;font-size:1.35rem;font-weight:700;margin-bottom:.6rem;max-width:580px;}
+  .pub-publisher{font-family:'DM Mono',monospace;font-size:.68rem;color:var(--blue);margin-bottom:1.5rem;}
+  .pub-desc{font-size:.88rem;color:var(--muted);line-height:1.75;margin-bottom:1.5rem;}
+  .pub-link{display:inline-flex;align-items:center;gap:.5rem;font-family:'DM Mono',monospace;font-size:.65rem;color:var(--accent);text-decoration:none;letter-spacing:.08em;border-bottom:1px solid rgba(26,92,58,.3);padding-bottom:.1rem;transition:opacity .2s;}
+  .pub-link:hover{opacity:.7;}
+
+  /* EDUCATION */
+  .edu-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);}
+  .edu-card{background:var(--card);padding:2.5rem;transition:background .25s;}
+  .edu-card:hover{background:var(--bg2);}
+  .edu-period{font-family:'DM Mono',monospace;font-size:.62rem;color:var(--light);letter-spacing:.1em;margin-bottom:.9rem;}
+  .edu-deg{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;margin-bottom:.4rem;}
+  .edu-school{font-size:.88rem;color:var(--muted);margin-bottom:1.3rem;}
+  .edu-badge{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Mono',monospace;font-size:.62rem;color:var(--accent3);letter-spacing:.06em;}
+  .edu-courses{font-size:.8rem;color:var(--light);margin-top:.9rem;line-height:1.7;}
+
+  /* AWARDS */
+  .awards-list{display:flex;flex-direction:column;gap:1px;background:var(--border);max-width:860px;}
+  .award-row{display:flex;align-items:center;gap:2rem;padding:1.8rem 2rem;background:var(--card);transition:background .2s;}
+  .award-row:hover{background:var(--bg2);}
+  .award-icon{font-size:1.4rem;flex-shrink:0;}
+  .award-info{flex:1;}
+  .award-name{font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;margin-bottom:.25rem;}
+  .award-detail{font-size:.84rem;color:var(--muted);}
+  .award-yr{font-family:'DM Mono',monospace;font-size:.65rem;color:var(--accent);flex-shrink:0;}
+
+  /* CONTACT */
+  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:start;}
+  .contact-title{font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3.2rem);font-weight:800;line-height:1.1;letter-spacing:-.02em;margin-bottom:1.2rem;}
+  .contact-title em{color:var(--accent);font-style:italic;}
+  .contact-sub{color:var(--muted);font-size:.95rem;line-height:1.8;margin-bottom:2.5rem;}
+  .c-links{display:flex;flex-direction:column;gap:1px;background:var(--border);}
+  .c-link{display:flex;align-items:center;justify-content:space-between;padding:1.3rem 1.5rem;background:var(--card);text-decoration:none;color:var(--text);transition:background .2s;}
+  .c-link:hover{background:var(--bg2);}
+  .c-left{display:flex;align-items:center;gap:1rem;}
+  .c-ico{font-size:1rem;}
+  .c-type{font-family:'DM Mono',monospace;font-size:.58rem;color:var(--light);letter-spacing:.1em;text-transform:uppercase;margin-bottom:.2rem;}
+  .c-val{font-size:.88rem;color:var(--text);}
+  .c-arr{color:var(--accent);font-family:'DM Mono',monospace;}
+
+  .info-panel{background:var(--card);border:1px solid var(--border);overflow:hidden;}
+  .panel-header{background:var(--accent);padding:1.2rem 1.5rem;}
+  .panel-header-title{font-family:'DM Mono',monospace;font-size:.65rem;color:rgba(255,255,255,.85);letter-spacing:.12em;text-transform:uppercase;}
+  .panel-body{padding:1.8rem 1.5rem;display:flex;flex-direction:column;gap:1.2rem;}
+  .p-lbl{font-family:'DM Mono',monospace;font-size:.6rem;color:var(--light);letter-spacing:.1em;text-transform:uppercase;margin-bottom:.3rem;}
+  .p-val{font-size:.9rem;color:var(--text);line-height:1.5;}
+  .p-val.accent{color:var(--accent);font-weight:500;}
+  .p-div{height:1px;background:var(--border);}
+
+  footer{border-top:1px solid var(--border);padding:1.8rem 4rem;display:flex;justify-content:space-between;align-items:center;background:var(--card);}
+  .footer-l{font-family:'DM Mono',monospace;font-size:.62rem;color:var(--light);letter-spacing:.08em;}
+  .footer-r{font-family:'DM Mono',monospace;font-size:.62rem;color:var(--light);}
+  .footer-r span{color:var(--accent);}
+
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease;}
+  .reveal.visible{opacity:1;transform:translateY(0);}
+
+  @media(max-width:900px){
+    nav{padding:1rem 1.5rem;}
+    .nav-links{display:none;}
+    section{padding:4.5rem 1.5rem;}
+    #hero{padding:0 1.5rem;flex-direction:column;justify-content:center;gap:2rem;}
+    .hero-right{width:100%;margin-left:0;}
+    .about-grid,.contact-grid,.edu-grid,.proj-grid,.skills-grid{grid-template-columns:1fr;}
+    .exp-item{grid-template-columns:1fr;gap:1rem;}
+    footer{flex-direction:column;gap:.6rem;text-align:center;}
+    .hero-scroll{left:1.5rem;}
+  }
+</style>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<nav id="nav">
+  <div class="nav-logo">Vruddhi K. Shah</div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#publication">Publication</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg-gradient"></div>
+  <div class="hero-left">
+    <div class="hero-eyebrow"><span></span>Data Analyst · AI & Machine Learning</div>
+    <h1 class="hero-name">Vruddhi<br><em>K. Shah</em></h1>
+    <p class="hero-title">Co-op / Intern Candidate · Toronto / North Bay, ON</p>
+    <div class="hero-pills">
+      <div class="pill green">✓ Available from May 5, 2026</div>
+      <div class="pill">Python · SQL · Tableau</div>
+      <div class="pill">Azure · ML · Agile</div>
+      <div class="pill">Published Researcher</div>
+    </div>
+    <div class="hero-cta">
+      <a href="https://www.linkedin.com/in/vruddhi-k-shah/" target="_blank" class="btn-solid">↗ LinkedIn</a>
+      <a href="https://github.com/VruddhiShahProjects" target="_blank" class="btn-outline">⌥ GitHub</a>
+      <a href="Vruddhi_K_Shah_Resume.pdf" download class="btn-resume">↓ Download Resume</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="stat-card">
+      <div class="stat-row"><div class="stat-lbl">GPA</div><div class="stat-val gold">8.58 / 10</div></div>
+      <div class="stat-row"><div class="stat-lbl">Standing</div><div class="stat-val green">Gold Medalist</div></div>
+      <div class="stat-row"><div class="stat-lbl">Enterprise Exp.</div><div class="stat-val">3+ Years</div></div>
+      <div class="stat-row"><div class="stat-lbl">Publication</div><div class="stat-val">IGI Global</div></div>
+      <div class="stat-row"><div class="stat-lbl">Available From</div><div class="stat-val green" style="font-size:1rem;">May 5, 2026</div></div>
+    </div>
+    <div class="avail-badge">
+      <div class="avail-dot"></div>
+      <div class="avail-text">Actively seeking Summer / Fall 2026<br>Data Analyst Co-op / Internship</div>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <div class="scroll-bar"></div>
+    <span class="scroll-lbl">Scroll to explore</span>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="alt">
+  <div class="sec-label">01 — About</div>
+  <div class="about-grid">
+    <div class="about-text reveal">
+      <div class="avatar-wrap">
+        <div class="avatar-circle">
+          <span class="avatar-initials">VKS</span>
+        </div>
+        <div class="avatar-meta">
+          <div class="avatar-name">Vruddhi K. Shah</div>
+          <div class="avatar-role">Data Analyst · AI & ML Specialist</div>
+        </div>
+      </div>
+      <h2 class="sec-title">The analyst<br>behind the data.</h2><br>
+      <p>I'm a <strong>Computer Science specialist</strong> completing a Post-Baccalaureate Diploma in AI & Machine Learning at Nipissing University. My journey spans two countries — Gold Medallist in India, now building expertise in cloud, ML, and enterprise data in Canada.</p>
+      <p>At Parshwa Technologies, I spent three years working end-to-end across the SDLC: <strong>profiling data, mapping sources to targets, documenting requirements</strong>, and collaborating across developers, analysts, and operations teams.</p>
+      <p>I've led a <strong>national AI Hackathon team to 1st place</strong> and published peer-reviewed research with IGI Global — reflecting how I approach problems: rigorously, cross-functionally, and with clear communication throughout.</p>
+    </div>
+    <div class="reveal" style="transition-delay:.15s;">
+      <div class="info-list">
+        <div class="info-row"><div class="info-icon">📍</div><div><div class="info-lbl">Location</div><div class="info-val">Toronto / North Bay, ON, Canada</div></div></div>
+        <div class="info-row"><div class="info-icon">📧</div><div><div class="info-lbl">Email</div><div class="info-val">vruddhi.kshah@outlook.com</div></div></div>
+        <div class="info-row"><div class="info-icon">📞</div><div><div class="info-lbl">Phone</div><div class="info-val">705-303-3841</div></div></div>
+        <div class="info-row"><div class="info-icon">🎓</div><div><div class="info-lbl">Current Program</div><div class="info-val">AI & ML — Nipissing University (Apr 2026)</div></div></div>
+        <div class="info-row"><div class="info-icon">📖</div><div><div class="info-lbl">Published</div><div class="info-val">IGI Global Scientific Publishing — Security & Forensics</div></div></div>
+        <div class="info-row"><div class="info-icon">🏆</div><div><div class="info-lbl">Top Achievements</div><div class="info-val">Gold Medalist · AI Hackathon 1st Place · Published Author</div></div></div>
+        <div class="info-row"><div class="info-icon">🗓️</div><div><div class="info-lbl">Available From</div><div class="info-val" style="color:var(--accent);font-weight:500;">May 5, 2026 — Co-op Work Permit · Canada</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="sec-label">02 — Core Skills</div>
+  <h2 class="sec-title reveal">What I bring<br>to every project.</h2>
+  <p class="sec-desc reveal" style="transition-delay:.1s;">Technical breadth built through real enterprise work, academic research, and hands-on project delivery.</p>
+  <div class="skills-grid reveal" style="transition-delay:.15s;">
+    <div class="skill-cell">
+      <div class="skill-icon">📊</div><div class="skill-name">Data Analysis & Wrangling</div>
+      <div class="tags"><span class="tag">Python</span><span class="tag">pandas</span><span class="tag">NumPy</span><span class="tag">SQL</span><span class="tag">Excel Advanced</span><span class="tag">Data Profiling</span><span class="tag">Data Validation</span></div>
+    </div>
+    <div class="skill-cell">
+      <div class="skill-icon">🤖</div><div class="skill-name">AI & Machine Learning</div>
+      <div class="tags"><span class="tag b">scikit-learn</span><span class="tag b">Deep Learning</span><span class="tag b">ML Fundamentals</span><span class="tag b">Model Evaluation</span><span class="tag b">Data Pipelines</span></div>
+    </div>
+    <div class="skill-cell">
+      <div class="skill-icon">☁️</div><div class="skill-name">Cloud & Infrastructure</div>
+      <div class="tags"><span class="tag b">Azure Fundamentals</span><span class="tag b">ETL Concepts</span><span class="tag b">Talend</span><span class="tag b">Informatica Awareness</span></div>
+    </div>
+    <div class="skill-cell">
+      <div class="skill-icon">🗄️</div><div class="skill-name">Databases & Modeling</div>
+      <div class="tags"><span class="tag">MS SQL</span><span class="tag">DB2</span><span class="tag">ERDs</span><span class="tag">Source-to-Target Mapping</span><span class="tag">Data Modeling</span></div>
+    </div>
+    <div class="skill-cell">
+      <div class="skill-icon">📈</div><div class="skill-name">Visualization & Reporting</div>
+      <div class="tags"><span class="tag g">Tableau</span><span class="tag g">Excel Dashboards</span><span class="tag g">Visio</span><span class="tag g">Process Flow Diagrams</span></div>
+    </div>
+    <div class="skill-cell">
+      <div class="skill-icon">⚡</div><div class="skill-name">Agile & Delivery</div>
+      <div class="tags"><span class="tag n">Jira</span><span class="tag n">Confluence</span><span class="tag n">Scrum / Agile</span><span class="tag n">SDLC / PMLC</span><span class="tag n">Git / GitHub</span><span class="tag n">REST APIs</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience" class="alt">
+  <div class="sec-label">03 — Work Experience</div>
+  <h2 class="sec-title reveal">Three years of<br>enterprise delivery.</h2>
+  <div class="exp-item reveal" style="transition-delay:.1s;">
+    <div>
+      <div class="exp-period">Jan 2021 – Feb 2024</div>
+      <div class="exp-co">Parshwa Technologies<br>India</div>
+    </div>
+    <div>
+      <div class="exp-role">Junior Developer & IT Support Technician</div>
+      <ul class="exp-list">
+        <li><span><strong>Data Analysis & Requirements:</strong> Partnered with business and technology teams to define, develop, and document detailed data and system requirements across multiple application modules.</span></li>
+        <li><span><strong>Data Wrangling & Validation:</strong> Performed data profiling, clean-up, and validation during testing and migration — identifying root causes of data quality issues and recommending remediation steps.</span></li>
+        <li><span><strong>Data Mapping & Documentation:</strong> Produced detailed source-to-target mapping documents, user stories, defect logs, and evaluation reports for technical and non-technical stakeholders.</span></li>
+        <li><span><strong>Cross-functional Collaboration:</strong> Delivered end-to-end capabilities within Agile pod team dynamics — from concept through production deployment.</span></li>
+        <li><span><strong>Root Cause Analysis:</strong> Troubleshot application defects, determined root causes, and implemented fixes — reducing recurring platform issues and improving data quality.</span></li>
+        <li><span><strong>Project Delivery (SDLC/PMLC):</strong> Owned multiple projects from Inception through Implementation; outcomes measured against defined success criteria.</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="sec-label">04 — Projects</div>
+  <h2 class="sec-title reveal">Real projects.<br>Real outcomes.</h2>
+  <p class="sec-desc reveal" style="transition-delay:.1s;">From national competitions to published research — each project is linked directly to its GitHub repository or publication.</p>
+  <div class="proj-grid reveal" style="transition-delay:.15s;">
+
+    <div class="proj-card">
+      <div class="proj-num">01</div>
+      <div class="proj-badge">🥇 1st Place · National AI Hackathon</div>
+      <div class="proj-title">AI Hackathon — Team Lead</div>
+      <p class="proj-desc">Led end-to-end delivery of an AI-driven analytical solution at a national competition. Covered data analysis, iterative testing, model evaluation, and final presentation — with outcomes benchmarked against defined performance criteria.</p>
+      <div class="proj-outcome">Ranked 1st of all competing teams nationally</div>
+      <div class="proj-footer">
+        <div class="proj-tags"><span class="ptag">Python</span><span class="ptag">AI/ML</span><span class="ptag">Data Analysis</span><span class="ptag">Team Lead</span></div>
+      </div>
+    </div>
+
+    <div class="proj-card">
+      <div class="proj-num">02</div>
+      <div class="proj-badge green">C++ · Final Project</div>
+      <div class="proj-title">Advanced Game Development</div>
+      <p class="proj-desc">Built a complete, fully functional game as a capstone project in C++. Applied advanced object-oriented design, game state management, collision detection, and performance optimisation — demonstrating strong algorithmic thinking and low-level programming skill.</p>
+      <div class="proj-outcome">Capstone grade: distinction — complex OOP architecture</div>
+      <div class="proj-footer">
+        <div class="proj-tags"><span class="ptag">C++</span><span class="ptag">OOP</span><span class="ptag">Game Logic</span><span class="ptag">Algorithms</span></div>
+        <a href="https://github.com/VruddhiShahProjects/AdvanceGame-Devlopment" target="_blank" class="proj-link">↗ GitHub</a>
+      </div>
+    </div>
+
+    <div class="proj-card">
+      <div class="proj-num">03</div>
+      <div class="proj-badge blue">Java · Enterprise Application</div>
+      <div class="proj-title">Hotel Management System</div>
+      <p class="proj-desc">Designed and developed a full-featured hotel management system in Java. Implemented systematic data validation, documented anomalies, and produced user-facing reports in a multi-stakeholder environment. Built data flow visualizations for non-technical audiences.</p>
+      <div class="proj-outcome">Multi-module system — full validation & reporting pipeline</div>
+      <div class="proj-footer">
+        <div class="proj-tags"><span class="ptag">Java</span><span class="ptag">Data Validation</span><span class="ptag">QA</span><span class="ptag">Reporting</span></div>
+        <a href="https://github.com/VruddhiShahProjects/Hotel-Management-System" target="_blank" class="proj-link">↗ GitHub</a>
+      </div>
+    </div>
+
+    <div class="proj-card">
+      <div class="proj-num">04</div>
+      <div class="proj-badge">ATM Simulator System</div>
+      <div class="proj-title">ATM Simulator System</div>
+      <p class="proj-desc">Developed a comprehensive ATM simulator with full transaction logic, account management, and security features. Demonstrated secure software design principles, multi-state transaction handling, data integrity, and user authentication flows.</p>
+      <div class="proj-outcome">Secure auth flow — zero data integrity failures in testing</div>
+      <div class="proj-footer">
+        <div class="proj-tags"><span class="ptag">Java</span><span class="ptag">Security</span><span class="ptag">Data Integrity</span><span class="ptag">OOP</span></div>
+        <a href="https://github.com/VruddhiShahProjects/ATM-Simulator-System-master" target="_blank" class="proj-link">↗ GitHub</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PUBLICATION -->
+<section id="publication" class="alt2">
+  <div class="sec-label">05 — Publication</div>
+  <h2 class="sec-title reveal">Peer-reviewed &<br>internationally published.</h2>
+  <div class="pub-card reveal" style="transition-delay:.15s;">
+    <div class="pub-stripe"></div>
+    <div class="pub-tag">📄 Book Chapter · Security & Forensics Series</div>
+    <div class="pub-title">Neptune Security: A Novel Approach to Big Data Privacy Protection</div>
+    <div class="pub-publisher">IGI Global Scientific Publishing · Security & Forensics Series</div>
+    <p class="pub-desc">Analyzed large-scale datasets to identify privacy vulnerabilities and model threat patterns — directly applicable to data profiling, validation, and anomaly detection in enterprise data platforms. Produced structured, data-driven academic documentation reviewed through IGI Global's rigorous peer-review process, demonstrating strong technical writing, big data security frameworks, and research rigor relevant to enterprise data environments.</p>
+    <a href="https://www.igi-global.com/chapter/neptune-security/363033" target="_blank" class="pub-link">View Published Chapter on IGI Global ↗</a>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education" class="alt">
+  <div class="sec-label">06 — Education</div>
+  <h2 class="sec-title reveal">Academic<br>foundation.</h2>
+  <div class="edu-grid reveal" style="transition-delay:.1s;">
+    <div class="edu-card">
+      <div class="edu-period">2024 – Apr 2026 · In Progress</div>
+      <div class="edu-deg">Post-Baccalaureate Diploma<br>Artificial Intelligence & Machine Learning</div>
+      <div class="edu-school">Nipissing University · North Bay, ON</div>
+      <div class="edu-badge">🎓 Co-op Eligible</div>
+      <p class="edu-courses">ML/AI fundamentals · deep learning · data pipelines · cloud computing (Azure) · cybersecurity · enterprise IT systems</p>
+    </div>
+    <div class="edu-card">
+      <div class="edu-period">2021 – 2024</div>
+      <div class="edu-deg">Bachelor of Science<br>Information Technology</div>
+      <div class="edu-school">L.J. University · Gujarat, India</div>
+      <div class="edu-badge">🥇 Gold Medalist — GPA 8.58/10</div>
+      <p class="edu-courses">Algorithms · databases · software development · networking · OS · data modeling · technical communication</p>
+    </div>
+  </div>
+</section>
+
+<!-- AWARDS -->
+<section id="awards">
+  <div class="sec-label">07 — Awards & Recognition</div>
+  <h2 class="sec-title reveal">Recognised for<br>excellence.</h2><br>
+  <div class="awards-list reveal" style="transition-delay:.1s;">
+    <div class="award-row">
+      <div class="award-icon">🥇</div>
+      <div class="award-info"><div class="award-name">1st Place — National AI Hackathon</div><div class="award-detail">End-to-end AI solution delivery under competition conditions · Team Lead</div></div>
+      <div class="award-yr">2023</div>
+    </div>
+    <div class="award-row">
+      <div class="award-icon">🏅</div>
+      <div class="award-info"><div class="award-name">Gold Medalist — B.Sc. Information Technology</div><div class="award-detail">GPA 8.58/10 · Top graduate of the entire IT program at L.J. University</div></div>
+      <div class="award-yr">2024</div>
+    </div>
+    <div class="award-row">
+      <div class="award-icon">📚</div>
+      <div class="award-info"><div class="award-name">IGI Global Published Author</div><div class="award-detail">Peer-reviewed book chapter · Security & Forensics Series · International scientific publisher</div></div>
+      <div class="award-yr">2024</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="alt2">
+  <div class="sec-label">08 — Get In Touch</div>
+  <div class="contact-grid">
+    <div class="reveal">
+      <h2 class="contact-title">Let's build<br>something <em>great</em><br>together.</h2>
+      <p class="contact-sub">Available from May 5, 2026 for Data Analyst Co-op or Internship roles. Open to opportunities in data analysis, AI/ML, and enterprise data platforms across Toronto and beyond.</p>
+      <div class="c-links">
+        <a href="mailto:vruddhi.kshah@outlook.com" class="c-link"><div class="c-left"><div class="c-ico">📧</div><div><div class="c-type">Email</div><div class="c-val">vruddhi.kshah@outlook.com</div></div></div><div class="c-arr">↗</div></a>
+        <a href="https://www.linkedin.com/in/vruddhi-k-shah/" target="_blank" class="c-link"><div class="c-left"><div class="c-ico">💼</div><div><div class="c-type">LinkedIn</div><div class="c-val">linkedin.com/in/vruddhi-k-shah</div></div></div><div class="c-arr">↗</div></a>
+        <a href="https://github.com/VruddhiShahProjects" target="_blank" class="c-link"><div class="c-left"><div class="c-ico">⌥</div><div><div class="c-type">GitHub</div><div class="c-val">github.com/VruddhiShahProjects</div></div></div><div class="c-arr">↗</div></a>
+        <a href="tel:7053033841" class="c-link"><div class="c-left"><div class="c-ico">📞</div><div><div class="c-type">Phone</div><div class="c-val">705-303-3841</div></div></div><div class="c-arr">↗</div></a>
+        <a href="Vruddhi_K_Shah_Resume.pdf" download class="c-link"><div class="c-left"><div class="c-ico">📄</div><div><div class="c-type">Resume</div><div class="c-val">Download PDF Resume</div></div></div><div class="c-arr">↓</div></a>
+      </div>
+    </div>
+    <div class="reveal" style="transition-delay:.2s;">
+      <div class="info-panel">
+        <div class="panel-header"><div class="panel-header-title">Quick Profile Summary</div></div>
+        <div class="panel-body">
+          <div><div class="p-lbl">Available From</div><div class="p-val accent">✓ May 5, 2026 — Co-op Work Permit</div></div>
+          <div class="p-div"></div>
+          <div><div class="p-lbl">Specialisation</div><div class="p-val">Data Analysis · AI & Machine Learning</div></div>
+          <div class="p-div"></div>
+          <div><div class="p-lbl">Academic Standing</div><div class="p-val">Gold Medalist · GPA 8.58/10</div></div>
+          <div class="p-div"></div>
+          <div><div class="p-lbl">Key Tools</div><div class="p-val">Python · SQL · Tableau · Azure · Jira</div></div>
+          <div class="p-div"></div>
+          <div><div class="p-lbl">Publication</div><div class="p-val">IGI Global — Security & Forensics Series</div></div>
+          <div class="p-div"></div>
+          <div><div class="p-lbl">Work Authorisation</div><div class="p-val">Co-op Work Permit · Canada</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-l">© 2026 Vruddhi K. Shah · Toronto / North Bay, ON, Canada</div>
+  <div class="footer-r">Data Analyst & AI/ML Specialist · Built with <span>♥</span></div>
+</footer>
+
+<script>
+  /* Custom cursor — desktop only */
+  if(window.matchMedia('(hover:hover)').matches){
+    const cursor=document.getElementById('cursor'),ring=document.getElementById('cursorRing');
+    let mx=0,my=0,rx=0,ry=0;
+    document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cursor.style.left=mx+'px';cursor.style.top=my+'px';});
+    (function loop(){rx+=(mx-rx)*.12;ry+=(my-ry)*.12;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(loop);})();
+    document.querySelectorAll('a,button').forEach(el=>{
+      el.addEventListener('mouseenter',()=>{cursor.style.width='5px';cursor.style.height='5px';ring.style.width='46px';ring.style.height='46px';});
+      el.addEventListener('mouseleave',()=>{cursor.style.width='10px';cursor.style.height='10px';ring.style.width='32px';ring.style.height='32px';});
+    });
+  }
+
+  /* Scroll nav */
+  const nav=document.getElementById('nav');
+  window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>40);});
+
+  /* Reveal on scroll */
+  const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});},{threshold:.1});
+  document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
